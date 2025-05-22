@@ -34,15 +34,15 @@ const InteractiveAiBackground: React.FC = () => {
       });
     }
 
-    // Cleanup function to destroy VANTA effect on component unmount
+    // Cleanup function to destroy VANTA effect when component unmounts
     return () => {
       if (vantaEffect.current) {
         vantaEffect.current.destroy();
       }
     };
-  }, [theme]); // Rerun effect if theme changes
+  }, [theme]);
 
-  return <div ref={vantaRef} className="interactive-ai-background"></div>;
+  return <div ref={vantaRef} className="interactive-ai-background" style={{ width: '100vw', height: '100vh', position: 'fixed', top: 0, left: 0, zIndex: -1 }} />;
 };
 
 export default InteractiveAiBackground;

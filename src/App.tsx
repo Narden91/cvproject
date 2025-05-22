@@ -5,6 +5,7 @@ import EducationSection from './components/sections/EducationSection';
 import ExperienceSection from './components/sections/ExperienceSection'; 
 import ThemeToggleButton from './components/ui/ThemeToggleButton';
 import InteractiveAiBackground from './components/ui/InteractiveAiBackground';
+import Header from './components/common/Header'; // Import the Header component
 import './App.css'; // Import App-specific styles
 
 /**
@@ -31,6 +32,7 @@ function App() {
   return (
     <div className="app">
       <InteractiveAiBackground /> {/* Interactive AI/Evolutionary Algorithm background */}
+      <Header /> {/* Add the Header component */}
       <ThemeToggleButton /> {/* Moved ThemeToggleButton outside content-wrapper for fixed positioning potentially */}
       <div className="content-wrapper">
         <HeroSection />

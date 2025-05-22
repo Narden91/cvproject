@@ -2,7 +2,7 @@
   padding: 3rem 1rem; /* Adjusted padding */
   position: relative;
   z-index: 2;
-  background-color: var(--card-bg); /* Use theme variable for background */
+  background-color: transparent; /* Make background transparent */
   color: var(--text-color); /* Use theme variable for text */
 }
 
