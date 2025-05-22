@@ -14,11 +14,28 @@
   flex-direction: column;
 }
 
+/* Add an additional subtle backdrop filter effect to sections for better readability */
+section {
+  backdrop-filter: blur(1px); /* Very subtle blur on section backgrounds */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(2px); /* Slightly stronger blur on hover */
+}
+
 .contact-placeholder {
   padding: 4rem 1rem;
   background-color: var(--card-bg);
   color: var(--text-color);
   text-align: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  border-radius: 12px;
+  width: calc(100% - 2rem);
 }
 
 .footer {
@@ -29,4 +46,25 @@
   font-size: 0.9rem;
   margin-top: auto; /* Push footer to bottom */
   border-top: 1px solid var(--border-color);
+}
+
+/* Info badge about the interactive background */
+.interactive-info {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.interactive-info:hover {
+  opacity: 1;
 }

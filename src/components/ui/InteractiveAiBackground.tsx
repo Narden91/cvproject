@@ -1,142 +1,48 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useTheme } from '../../hooks/useTheme'; // Assuming you have a useTheme hook
 import './InteractiveAiBackground.css';
 
-interface Particle {
-  id: string;
-  x: number;
-  y: number;
-  radius: number;
-  opacity: number;
-  vx: number; // velocity x
-  vy: number; // velocity y
-}
-
-interface Ripple {
-  id: string;
-  x: number;
-  y: number;
-  radius: number;
-  maxRadius: number;
-  opacity: number;
-  createdAt: number;
-}
+// Declare VANTA globally or import if types are available
+declare const VANTA: any;
 
 const InteractiveAiBackground: React.FC = () => {
-  const [particles, setParticles] = useState<Particle[]>([]);
-  const [ripples, setRipples] = useState<Ripple[]>([]);
-  const svgRef = useRef<SVGSVGElement>(null);
-  const [dimensions, setDimensions] = useState({ width: window.innerWidth, height: window.innerHeight });
-
-  const generateParticle = useCallback((x?: number, y?: number): Particle => {
-    const id = Math.random().toString(36).substring(2, 9);
-    return {
-      id,
-      x: x ?? Math.random() * dimensions.width,
-      y: y ?? Math.random() * dimensions.height,
-      radius: Math.random() * 2 + 1, // 1-3px radius
-      opacity: Math.random() * 0.5 + 0.2, // 0.2-0.7 opacity
-      vx: (Math.random() - 0.5) * 0.3, // Slow drift
-      vy: (Math.random() - 0.5) * 0.3,
-    };
-  }, [dimensions.width, dimensions.height]);
+  const { theme } = useTheme();
+  const vantaRef = useRef<HTMLDivElement>(null);
+  const vantaEffect = useRef<any>(null); // To store the VANTA effect instance
 
   useEffect(() => {
-    const handleResize = () => {
-      setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    };
-    window.addEventListener('resize', handleResize);
-    
-    // Initialize particles based on current dimensions
-    setParticles(Array.from({ length: 70 }, () => generateParticle()));
-    
-    return () => window.removeEventListener('resize', handleResize);
-  }, [generateParticle]); // generateParticle is now stable due to useCallback with dimensions
+    if (VANTA && vantaRef.current) {
+      // Destroy previous instance if it exists
+      if (vantaEffect.current) {
+        vantaEffect.current.destroy();
+      }
 
-  const handleClick = useCallback((event: React.MouseEvent<SVGSVGElement>) => {
-    if (!svgRef.current) return;
-    const rect = svgRef.current.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+      vantaEffect.current = VANTA.NET({
+        el: vantaRef.current,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: theme === 'dark' ? 0x61dafb : 0x0066cc, // Example: Use theme colors
+        backgroundColor: theme === 'dark' ? 0x121212 : 0xffffff, // Example: Use theme colors
+        points: 13.00,
+        maxDistance: 18.00,
+        spacing: 16.00
+      });
+    }
 
-    const newRipple: Ripple = {
-      id: Math.random().toString(36).substring(2, 9),
-      x,
-      y,
-      radius: 0,
-      maxRadius: 100 + Math.random() * 50, // Larger ripples
-      opacity: 0.8,
-      createdAt: Date.now(),
-    };
-    setRipples(prev => [...prev, newRipple]);
-    
-    // Add a few particles at click location
-    const newParticles = Array.from({ length: 5 }, () => generateParticle(x, y));
-    setParticles(prev => [...prev, ...newParticles]);
-  }, [generateParticle]);
-
-  useEffect(() => {
-    let animationFrameId: number;
-    const updateAnimation = () => {
-      setParticles(prevParticles =>
-        prevParticles.map(p => {
-          let newX = p.x + p.vx;
-          let newY = p.y + p.vy;
-
-          if (newX < 0 || newX > dimensions.width) p.vx *= -1;
-          if (newY < 0 || newY > dimensions.height) p.vy *= -1;
-          
-          newX = Math.max(0, Math.min(dimensions.width, newX));
-          newY = Math.max(0, Math.min(dimensions.height, newY));
-
-          return { ...p, x: newX, y: newY };
-        })
-      );
-
-      setRipples(prevRipples => 
-        prevRipples.map(r => ({
-          ...r,
-          radius: r.radius + 2, // Faster expansion
-          opacity: Math.max(0, r.opacity - 0.015) // Faster fade out
-        })).filter(r => r.opacity > 0 && r.radius < r.maxRadius)
-      );
-      
-      animationFrameId = requestAnimationFrame(updateAnimation);
-    };
-
-    animationFrameId = requestAnimationFrame(updateAnimation);
+    // Cleanup function to destroy VANTA effect on component unmount
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      if (vantaEffect.current) {
+        vantaEffect.current.destroy();
+      }
     };
-  }, [dimensions.width, dimensions.height]); // Rerun on dimension change
+  }, [theme]); // Rerun effect if theme changes
 
-  return (
-    <svg
-      ref={svgRef}
-      onClick={handleClick}
-      className="interactive-ai-background"
-    >
-      {ripples.map(r => (
-        <circle
-          key={r.id}
-          cx={r.x}
-          cy={r.y}
-          r={r.radius}
-          opacity={r.opacity}
-          className="ripple"
-        />
-      ))}
-      {particles.map(p => (
-        <circle
-          key={p.id}
-          cx={p.x}
-          cy={p.y}
-          r={p.radius}
-          opacity={p.opacity}
-          className="particle"
-        />
-      ))}
-    </svg>
-  );
+  return <div ref={vantaRef} className="interactive-ai-background"></div>;
 };
 
 export default InteractiveAiBackground;

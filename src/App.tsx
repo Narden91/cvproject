@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import HeroSection from './components/sections/HeroSection';
 import AboutSection from './components/sections/AboutSection';
 import EducationSection from './components/sections/EducationSection';
@@ -6,12 +7,32 @@ import ThemeToggleButton from './components/ui/ThemeToggleButton';
 import InteractiveAiBackground from './components/ui/InteractiveAiBackground';
 import './App.css'; // Import App-specific styles
 
+/**
+ * Main App component featuring an interactive AI/Evolutionary Algorithm background.
+ * The background visualizes concepts from evolutionary algorithms:
+ * - Particles represent individuals in a population
+ * - Neural connections between particles show relationships
+ * - Visual elements for selection, crossover, and mutation appear over time
+ * - Clicking in the background creates new particles and evolves the network
+ * - Colored particles represent different generations
+ */
 function App() {
+  const [showInfo, setShowInfo] = useState(true);
+
+  // Hide the info badge after 10 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowInfo(false);
+    }, 10000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="app">
-      <InteractiveAiBackground /> {/* Render background first */}
+      <InteractiveAiBackground /> {/* Interactive AI/Evolutionary Algorithm background */}
+      <ThemeToggleButton /> {/* Moved ThemeToggleButton outside content-wrapper for fixed positioning potentially */}
       <div className="content-wrapper">
-        <ThemeToggleButton />
         <HeroSection />
         <AboutSection />
         <EducationSection />
@@ -29,6 +50,13 @@ function App() {
           </div>
         </footer>
       </div>
+      
+      {/* Info badge about the interactive background */}
+      {showInfo && (
+        <div className="interactive-info">
+          Click anywhere on the background to interact with the evolutionary AI visualization
+        </div>
+      )}
     </div>
   );
 }
