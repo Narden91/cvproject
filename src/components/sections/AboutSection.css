@@ -1,0 +1,99 @@
+.about-section {
+  padding: 3rem 1rem; /* Adjusted padding */
+  position: relative;
+  z-index: 2;
+  background-color: var(--card-bg); /* Use theme variable for background */
+  color: var(--text-color); /* Use theme variable for text */
+}
+
+/* .about-title is replaced by .section-title from global styles if used as in the TSX */
+/* If a unique style for About Me title is needed, it can be defined here or by a more specific selector */
+
+.section-title { /* Assuming this is a global style, but can be specific if needed */
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  text-align: center;
+  font-weight: bold;
+}
+
+.about-summary {
+  margin-bottom: 2rem;
+  max-width: 800px; /* Control width of summary text */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.summary-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  text-align: justify; /* Or left, depending on preference */
+}
+
+.about-details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  max-width: 900px; /* Control width of details grid */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) { /* md breakpoint or similar */
+  .about-details-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+  }
+}
+
+.about-expertise,
+.about-current-focus {
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--background-color); /* Slightly different background for these cards */
+}
+
+.subsection-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.expertise-list {
+  list-style: none; /* Or disc, square, etc. */
+  padding-left: 0; /* Remove default padding if no list-style */
+}
+
+.expertise-item {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  /* Add a custom bullet or icon if desired */
+  /* position: relative; */
+  /* padding-left: 1.5em; */
+}
+
+/* .expertise-item::before { */
+  /* content: '\2713'; Checkmark example */
+  /* content: '\2022'; Bullet example */
+  /* position: absolute; */
+  /* left: 0; */
+  /* color: var(--primary-color); */
+/* } */
+
+.about-current-focus p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+}
+
+.about-current-focus strong {
+  font-weight: 600;
+  color: var(--primary-color);
+}

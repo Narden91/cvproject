@@ -1,0 +1,49 @@
+.interactive-ai-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Behind other content */
+    transition: background-color 0.5s ease;
+    /* Default background color, can be overridden by theme or props */
+    background-color: var(--background-color-dark); /* Default to dark theme background */
+  }
+  
+  /* Styles for particles and ripples if not directly handled by SVG attributes */
+  .interactive-ai-background circle {
+    transition: opacity 0.5s ease-out, r 0.5s ease-out; 
+  }
+  
+  /* Theming the background color via CSS vars */
+  body[data-theme='light'] .interactive-ai-background {
+    background-color: #f0f7ff; /* Light blue tint for light theme */
+  }
+  
+  body[data-theme='dark'] .interactive-ai-background {
+    background-color: #0a1929; /* Darker blue for dark theme */
+  }
+  
+  /* Light theme particle colors */
+  body[data-theme='light'] .interactive-ai-background .particle {
+    fill: rgba(0, 102, 204, 0.5); /* Blue particles with transparency */
+  }
+  
+  body[data-theme='light'] .interactive-ai-background .ripple {
+    fill: rgba(0, 102, 204, 0.2); /* Blue ripples with more transparency */
+  }
+  
+  /* Dark theme particle colors */
+  body[data-theme='dark'] .interactive-ai-background .particle {
+    fill: rgba(97, 218, 251, 0.5); /* Cyan particles with transparency */
+  }
+  
+  body[data-theme='dark'] .interactive-ai-background .ripple {
+    fill: rgba(173, 216, 230, 0.4); /* Light blue ripples with transparency */
+  }
+  
+  .interactive-ai-background svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }

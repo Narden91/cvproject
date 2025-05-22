@@ -1,0 +1,32 @@
+.app {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 10; /* Ensure content is above the background */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-placeholder {
+  padding: 4rem 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  text-align: center;
+}
+
+.footer {
+  padding: 2rem 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color-secondary);
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: auto; /* Push footer to bottom */
+  border-top: 1px solid var(--border-color);
+}

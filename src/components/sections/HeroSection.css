@@ -1,0 +1,86 @@
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Adjust as needed */
+  padding: 2rem;
+  text-align: center;
+  position: relative; /* For z-index stacking if needed */
+  z-index: 2;
+}
+
+.hero-headshot {
+  width: 150px; /* Equivalent to w-40 in Tailwind (40 * 0.25rem * 16px/rem) */
+  height: 150px; /* Equivalent to h-40 */
+  border-radius: 50%; /* rounded-full */
+  margin-bottom: 1.5rem; /* mb-6 */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  object-fit: cover;
+}
+
+.hero-title {
+  font-size: 2.5rem; /* Adjust as needed */
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem; /* Adjust as needed */
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.hero-tagline {
+  font-size: 1.1rem;
+  color: var(--text-color-secondary, var(--text-color)); /* Define --text-color-secondary or fallback */
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.hero-links {
+  margin-bottom: 2rem;
+}
+
+.hero-links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 0.75rem; /* mx-2 (0.5rem * 1.5) approx */
+  font-weight: 500;
+}
+
+.hero-links a:hover {
+  text-decoration: underline;
+}
+
+.hero-cta-container {
+  display: flex;
+  gap: 1rem; /* Space between buttons */
+}
+
+.hero-cta-button {
+  background-color: var(--primary-color);
+  color: var(--background-color); /* Or a specific button text color */
+  font-weight: bold;
+  padding: 0.75rem 1.5rem; /* py-3 px-6 */
+  border-radius: 0.5rem; /* rounded-lg */
+  text-decoration: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.hero-cta-button:hover {
+  background-color: var(--primary-color-dark); /* Or a darker shade of primary */
+  transform: translateY(-2px);
+}
+
+.hero-cta-button.secondary {
+  background-color: var(--card-bg); /* Or a secondary button color */
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.hero-cta-button.secondary:hover {
+  background-color: var(--border-color); /* Lighten or darken based on theme */
+}
