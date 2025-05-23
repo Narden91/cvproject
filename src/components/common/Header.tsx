@@ -6,7 +6,8 @@ import {
   HomeIcon, 
   UserIcon, 
   AcademicCapIcon, 
-  BriefcaseIcon, 
+  BriefcaseIcon,
+  DocumentTextIcon,
   EnvelopeIcon
 } from '@heroicons/react/24/outline';
 
@@ -19,6 +20,7 @@ const Header: React.FC = () => {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
   return (
     <header className={`app-header ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`}>
       <nav className="header-nav">
@@ -30,13 +32,17 @@ const Header: React.FC = () => {
           <UserIcon className="nav-icon" />
           <span>About</span>
         </a>
+        <a onClick={() => scrollToSection('experience')} className="nav-link">
+          <BriefcaseIcon className="nav-icon" />
+          <span>Experience</span>
+        </a>
         <a onClick={() => scrollToSection('education')} className="nav-link">
           <AcademicCapIcon className="nav-icon" />
           <span>Education</span>
         </a>
-        <a onClick={() => scrollToSection('experience')} className="nav-link">
-          <BriefcaseIcon className="nav-icon" />
-          <span>Experience</span>
+        <a onClick={() => scrollToSection('publications')} className="nav-link">
+          <DocumentTextIcon className="nav-icon" />
+          <span>Publications</span>
         </a>
         <a onClick={() => scrollToSection('contact')} className="nav-link">
           <EnvelopeIcon className="nav-icon" />

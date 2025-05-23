@@ -1,5 +1,5 @@
 export interface AboutData {
-  summary: string[]; // Array of paragraphs
+  summary: string[];
   expertise: string[];
   currentRole: string;
   researchFocus: string;
@@ -7,17 +7,21 @@ export interface AboutData {
 
 export const aboutData: AboutData = {
   summary: [
-    "A highly motivated and results-oriented PhD and AI Engineer with a passion for developing innovative solutions to complex problems. Expertise in deep learning, natural language processing, and computer vision, with a proven track record of delivering impactful research and development projects.",
-    "Seeking to leverage advanced AI skills and academic background to contribute to cutting-edge advancements in [Target Industry/Field]."
+    "I am a PhD student focused on developing AI-driven medical diagnostic tools through machine learning and artificial intelligence applications. I analyze multiple data sources - handwriting dynamics, neuroimaging, and biological markers - to create early detection methods for Neurodegenerative Diseases (ND) and Specific Learning Disorders (SLD).",
+    "My research utilizes deep learning architectures, specifically Transformers and CNNs, to build diagnostic frameworks that show promising results in the early detection of conditions like Alzheimer's disease using offline handwriting images. I implement explainability tools such as SHAP values and attention visualization to ensure that AI-driven diagnoses provide clear insights for healthcare practitioners."
   ],
   expertise: [
-    "Deep Learning (TensorFlow, PyTorch)",
-    "Natural Language Processing (NLP)",
-    "Computer Vision (CV)",
-    "Machine Learning Model Deployment",
-    "Big Data Analytics",
-    "Algorithm Design & Optimization"
+    "Deep Learning (Transformers, CNNs) for Medical Diagnostics",
+    "Handwriting Analysis & Biometric Pattern Recognition",
+    "Machine Learning for Neurodegenerative Disease Detection",
+    "Data Augmentation & Feature Selection Optimization",
+    "Bayesian Networks & Genetic Programming",
+    "Explainable AI (SHAP, Attention Visualization)",
+    "Multi-modal Classification Systems",
+    "Software Development (Python, C#, C++, Java)",
+    "MLOps & Container Technologies (Docker, Kubernetes)",
+    "Agentic AI Development (LangChain, LangGraph)"
   ],
-  currentRole: "AI Research Scientist at [Current Company/Institution]",
-  researchFocus: "Developing next-generation AI models for [Specific Area of Research], focusing on scalability and ethical considerations."
+  currentRole: "PhD Researcher at University of Cassino and Southern Lazio - Department of Electrical and Information Engineering (DIEI)",
+  researchFocus: "Digital handwriting analysis using Machine and Deep Learning techniques for early diagnosis of Specific Learning Disorders (SLD) in children and neurodegenerative diseases like Alzheimer's and Parkinson's"
 };

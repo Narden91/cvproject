@@ -3,42 +3,69 @@ export interface Degree {
   degree: string;
   field: string;
   year: string;
-  dissertationTitle?: string; // Optional for PhD
-  honors?: string; // Optional
-  relevantCoursework?: string[]; // Optional
+  dissertationTitle?: string;
+  supervisors?: string[];
+  honors?: string;
+  relevantCoursework?: string[];
+  additionalInfo?: string[];
 }
 
 export const educationData: Degree[] = [
   {
-    institution: "[Your PhD Granting Institution]",
+    institution: "University of Cassino and Southern Lazio",
     degree: "Doctor of Philosophy (PhD)",
-    field: "[Your Field of Study, e.g., Artificial Intelligence, Computer Science]",
-    year: "[Year of Graduation, e.g., 2020 - 2024]",
-    dissertationTitle: "[Your Dissertation Title - e.g., Advanced Deep Learning Models for Real-time Anomaly Detection]",
-    relevantCoursework: [
-      "Advanced Machine Learning",
-      "Deep Neural Networks",
-      "Natural Language Processing with Transformers",
-      "Computer Vision and Image Analysis"
+    field: "Artificial Intelligence - Department of Electrical and Information Engineering (DIEI)",
+    year: "2021 - Present",
+    dissertationTitle: "Digital handwriting analysis using Machine and Deep Learning techniques for early diagnosis of DSA in children",
+    supervisors: [
+      "Prof. Francesco Fontanella",
+      "Prof. Claudio De Stefano", 
+      "Prof. Leonardo Vanneschi"
+    ],
+    additionalInfo: [
+      "Developed C# WPF application for data acquisition for the PRIN2022 project on Alzheimer's disease through voice and handwriting",
+      "Developed AI and Acquisition system for Parkinson's disease through handwriting for San Raffaele Cassino",
+      "Developed AI pipeline for handwriting analysis"
     ]
   },
   {
-    institution: "[Your Master's Granting Institution]",
-    degree: "Master of Science (M.S.)",
-    field: "[Your Field of Study]",
-    year: "[Year of Graduation, e.g., 2018 - 2020]",
-    honors: "[e.g., Graduated with Distinction, Summa Cum Laude]",
-    relevantCoursework: [
-      "Probabilistic Graphical Models",
-      "Reinforcement Learning",
-      "Big Data Technologies"
+    institution: "University of NOVA IMS - Lisbon",
+    degree: "PhD Period Abroad",
+    field: "Genetic Programming & Multi-modal Classification",
+    year: "2023",
+    dissertationTitle: "Genetic Programming approach for Multi-modal classification system",
+    additionalInfo: [
+      "International research collaboration",
+      "Advanced genetic programming techniques",
+      "Multi-modal data fusion methodologies"
     ]
   },
   {
-    institution: "[Your Bachelor's Granting Institution]",
-    degree: "Bachelor of Science (B.S.)",
-    field: "[Your Field of Study]",
-    year: "[Year of Graduation, e.g., 2014 - 2018]",
-    honors: "[e.g., Dean's List, First Class Honors]"
+    institution: "University of Cassino and Southern Lazio",
+    degree: "Master's Degree",
+    field: "Software Engineering",
+    year: "2019 - 2021",
+    dissertationTitle: "A stroke-based Machine Learning approach for early diagnosis of neurodegenerative diseases",
+    honors: "110/110 summa cum laude",
+    relevantCoursework: [
+      "Advanced Software Engineering",
+      "Machine Learning Fundamentals",
+      "Data Structures and Algorithms",
+      "Database Design and Management",
+      "Computer Vision and Pattern Recognition",
+      "Statistical Data Analysis"
+    ]
+  },
+  {
+    institution: "Faculdade de Engenharia da Universidade do Porto",
+    degree: "Erasmus+ Exchange Program",
+    field: "Engineering",
+    year: "2020",
+    additionalInfo: [
+      "European Student Exchange Program",
+      "International academic experience",
+      "Cross-cultural engineering education",
+      "Portuguese language and culture immersion"
+    ]
   }
 ];

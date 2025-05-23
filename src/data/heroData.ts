@@ -3,17 +3,19 @@ export interface HeroData {
   title: string;
   tagline: string;
   email: string;
+  phone: string;
   linkedin: string;
   github: string;
   cvLink: string;
 }
 
 export const heroData: HeroData = {
-  name: "Dr. [Your Name]",
-  title: "PhD, AI Engineer",
-  tagline: "Innovating at the intersection of AI and [Your Specialization]",
-  email: "your.email@example.com",
-  linkedin: "https://linkedin.com/in/yourprofile",
-  github: "https://github.com/yourusername",
-  cvLink: "/path/to/your/cv.pdf", // Replace with actual link or handle download
+  name: "Emanuele Nardone",
+  title: "Software Engineer - PhD in Artificial Intelligence",
+  tagline: "Developing AI-driven medical diagnostic tools through machine learning and handwriting analysis for early detection of neurodegenerative diseases",
+  email: "emanuele.nardone@unicas.it",
+  phone: "(+39) 327-0181-459",
+  linkedin: "https://linkedin.com/in/emanuele-nardone",
+  github: "https://github.com/Narden91", 
+  cvLink: "/CV_2025.pdf",
 };

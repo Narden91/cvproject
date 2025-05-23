@@ -1,7 +1,7 @@
 {
-  "name": "Dr. [Your Name] - AI Expert Portfolio",
-  "short_name": "AI Portfolio",
-  "description": "Interactive portfolio showcasing AI expertise and research achievements",
+  "name": "Emanuele Nardone - AI Medical Diagnostics Portfolio",
+  "short_name": "E. Nardone AI",
+  "description": "Interactive portfolio showcasing AI research in medical diagnostics through handwriting analysis and machine learning",
   "icons": [
     {
       "src": "/favicon.svg",
@@ -35,14 +35,22 @@
   "scope": "/",
   "start_url": "/",
   "lang": "en",
-  "categories": ["portfolio", "technology", "artificial-intelligence", "research"],
+  "categories": [
+    "portfolio", 
+    "technology", 
+    "artificial-intelligence", 
+    "research", 
+    "medical-diagnostics",
+    "machine-learning",
+    "academia"
+  ],
   "screenshots": [
     {
       "src": "/screenshots/desktop-home.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "AI Portfolio Homepage"
+      "label": "Emanuele Nardone AI Portfolio Homepage"
     },
     {
       "src": "/screenshots/mobile-home.png",
@@ -54,8 +62,34 @@
   ],
   "related_applications": [],
   "prefer_related_applications": false,
-  "id": "ai-portfolio-app",
+  "id": "emanuele-nardone-ai-portfolio",
   "launch_handler": {
     "client_mode": "navigate-existing"
-  }
+  },
+  "shortcuts": [
+    {
+      "name": "Research Publications",
+      "short_name": "Publications",
+      "description": "View my research publications and academic work",
+      "url": "/#publications",
+      "icons": [
+        {
+          "src": "/icons/publications-icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch for research collaboration",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/icons/contact-icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
 }
