@@ -10,7 +10,7 @@ const EducationSection: React.FC = () => {
           <div className="section-number">03</div>
           <h2 className="display-2 section-title">Academic Foundation</h2>
           <p className="section-description">
-            Rigorous academic training in AI, machine learning, and computational sciences
+            Academic study in AI, Machine Learning, and Evolutionary Algorithms
           </p>
         </div>
 

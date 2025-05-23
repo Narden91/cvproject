@@ -1,6 +1,7 @@
 import React from 'react';
 import { heroData } from '../../data/heroData';
 import './HeroSection.css';
+import { publicationsData } from '../../data/publicationsData';
 
 const HeroSection: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -32,7 +33,7 @@ const HeroSection: React.FC = () => {
         {/* Stats Preview */}
         <div className="hero-stats">
           <div className="hero-stat">
-            <span className="stat-number">50+</span>
+            <span className="stat-number">{publicationsData.length}</span>
             <span className="stat-label">Publications</span>
           </div>
           <div className="hero-stat">

@@ -15,7 +15,7 @@ export const educationData: Degree[] = [
     institution: "University of Cassino and Southern Lazio",
     degree: "Doctor of Philosophy (PhD)",
     field: "Artificial Intelligence - Department of Electrical and Information Engineering (DIEI)",
-    year: "2021 - Present",
+    year: "2022 - Present",
     dissertationTitle: "Digital handwriting analysis using Machine and Deep Learning techniques for early diagnosis of DSA in children",
     supervisors: [
       "Prof. Francesco Fontanella",
@@ -32,7 +32,7 @@ export const educationData: Degree[] = [
     institution: "University of NOVA IMS - Lisbon",
     degree: "PhD Period Abroad",
     field: "Genetic Programming & Multi-modal Classification",
-    year: "2023",
+    year: "2024",
     dissertationTitle: "Genetic Programming approach for Multi-modal classification system",
     additionalInfo: [
       "International research collaboration",

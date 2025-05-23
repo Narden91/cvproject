@@ -12,7 +12,7 @@ export interface ExperienceEntry {
 export const experienceData: ExperienceEntry[] = [
   {
     company: "University of Cassino and Southern Lazio",
-    role: "PhD Researcher & Teaching Assistant",
+    role: "PhD Student & Teaching Assistant",
     duration: "2021 - Present",
     location: "Cassino, Italy",
     responsibilities: [

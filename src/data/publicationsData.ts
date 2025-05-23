@@ -195,10 +195,5 @@ export const languagesData = [
     language: "English", 
     level: "B2 (Upper Intermediate)",
     description: "Professional working proficiency, certified by ESB"
-  },
-  {
-    language: "Portuguese",
-    level: "A2 (Elementary)",
-    description: "Basic conversational level acquired during Erasmus+ exchange"
   }
 ];
