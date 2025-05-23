@@ -1,13 +1,73 @@
 import React from 'react';
 import { aboutData } from '../../data/aboutData';
-import './AboutSection.css'; // Make sure this CSS file exists and is styled
+import './AboutSection.css';
 
 const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="about-section section"> {/* Added "section" for global styles */}
-      <div className="container"> {/* Added "container" for global styles */}
-        <h2 className="section-title">About Me</h2> {/* Generic title class */}
+    <section id="about" className="about-section section">
+      <div className="container">
+        <div className="section-header">
+          <div className="section-number">01</div>
+          <h2 className="display-2 section-title">About Me</h2>
+          <p className="section-description">
+            Passionate about pushing the boundaries of AI to solve humanity's greatest challenges
+          </p>
+        </div>
         
+        <div className="about-content-grid">
+          {/* Core Expertise Card */}
+          <div className="about-card card-feature">
+            <div className="card-header">
+              <div className="card-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
+                        d="M9.663 17h4.673M12 3v1m6.364-.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </div>
+              <h3 className="heading-1">Core Expertise</h3>
+            </div>
+            
+            <div className="expertise-grid">
+              {aboutData.expertise.map((skill, index) => (
+                <div key={index} className="expertise-item">
+                  <div className="expertise-bullet">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <span>{skill}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Current Impact Card */}
+          <div className="about-card">
+            <div className="card-header">
+              <div className="card-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
+                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h3 className="heading-1">Current Impact</h3>
+            </div>
+            
+            <div className="impact-content">
+              <div className="current-role">
+                <h4 className="role-title">Current Role</h4>
+                <p className="role-description">{aboutData.currentRole}</p>
+              </div>
+              
+              <div className="research-focus">
+                <h4 className="focus-title">Research Focus</h4>
+                <p className="focus-description">{aboutData.researchFocus}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Summary Content */}
         <div className="about-summary">
           {aboutData.summary.map((paragraph, index) => (
             <p key={index} className="summary-paragraph">
@@ -16,20 +76,50 @@ const AboutSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="about-details-grid">
-          <div className="about-expertise">
-            <h3 className="subsection-title">Key Expertise</h3>
-            <ul className="expertise-list">
-              {aboutData.expertise.map((item, index) => (
-                <li key={index} className="expertise-item">{item}</li>
-              ))}
-            </ul>
+        {/* Achievement Stats */}
+        <div className="achievement-stats">
+          <div className="stat-card">
+            <div className="stat-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            <span className="stat-number">50+</span>
+            <span className="stat-label">Research Publications</span>
           </div>
           
-          <div className="about-current-focus">
-            <h3 className="subsection-title">Current Focus</h3>
-            <p><strong>Role:</strong> {aboutData.currentRole}</p>
-            <p><strong>Research:</strong> {aboutData.researchFocus}</p>
+          <div className="stat-card">
+            <div className="stat-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <span className="stat-number">5+</span>
+            <span className="stat-label">Years Experience</span>
+          </div>
+          
+          <div className="stat-card">
+            <div className="stat-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
+                      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+              </svg>
+            </div>
+            <span className="stat-number">15+</span>
+            <span className="stat-label">AI Projects Delivered</span>
+          </div>
+          
+          <div className="stat-card">
+            <div className="stat-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
+                      d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+              </svg>
+            </div>
+            <span className="stat-number">3</span>
+            <span className="stat-label">Industry Awards</span>
           </div>
         </div>
       </div>
