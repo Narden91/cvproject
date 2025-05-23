@@ -1,0 +1,121 @@
+/* GithubCarouselSection.css */
+.github-carousel-section {
+  padding: 4rem 0;
+  background-color: var(--background-color-alt);
+}
+
+.repo-slide {
+  padding: 0 1rem; /* Adds spacing between slides */
+}
+
+.repo-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure cards in a row have same height */
+  min-height: 380px; /* Minimum height for consistency */
+}
+
+.repo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.repo-image {
+  width: 100%;
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Cover the area, might crop */
+}
+
+.repo-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allows this section to grow and push footer down */
+}
+
+.repo-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.repo-description {
+  font-size: 0.95rem;
+  color: var(--text-color-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Allows description to take available space */
+}
+
+.repo-stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-color-tertiary);
+  margin-bottom: 1.25rem;
+}
+
+.repo-language {
+  font-weight: 500;
+}
+
+.repo-stars,
+.repo-forks {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.repo-link {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  margin-top: auto; /* Pushes the link to the bottom of the card */
+}
+
+.repo-link:hover {
+  background-color: var(--primary-color-dark);
+}
+
+/* Slick Carousel Customizations */
+.slick-dots li button:before {
+  font-size: 10px;
+  color: var(--primary-color);
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--primary-color-dark);
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: var(--primary-color);
+  font-size: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .repo-name {
+    font-size: 1.3rem;
+  }
+  .repo-description {
+    font-size: 0.9rem;
+  }
+  .slick-prev,
+  .slick-next {
+    /* Adjust position or hide if they overlap content too much on mobile */
+  }
+}

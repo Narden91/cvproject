@@ -4,6 +4,7 @@ import AboutSection from './components/sections/AboutSection';
 import EducationSection from './components/sections/EducationSection';
 import ExperienceSection from './components/sections/ExperienceSection';
 import PublicationsSection from './components/sections/PublicationsSection';
+import GithubCarouselSection from './components/sections/GithubCarouselSection';
 import ThemeToggleButton from './components/ui/ThemeToggleButton';
 import InteractiveAiBackground from './components/ui/InteractiveAiBackground';
 import Header from './components/common/Header';
@@ -40,9 +41,10 @@ function App() {
       <div className="content-wrapper">
         <HeroSection />
         <AboutSection />
-        <ExperienceSection />
         <EducationSection />
+        <ExperienceSection />
         <PublicationsSection />
+        <GithubCarouselSection />
         
         {/* Contact Section Placeholder */}
         <section id="contact" className="contact-placeholder">
