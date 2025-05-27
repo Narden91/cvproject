@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { experienceData } from '../../data/experienceData';
 import './ExperienceSection.css';
 
 const ExperienceSection: React.FC = () => {
+  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
+
+  const toggleCard = (index: number) => {
+    const newExpanded = new Set(expandedCards);
+    if (newExpanded.has(index)) {
+      newExpanded.delete(index);
+    } else {
+      newExpanded.add(index);
+    }
+    setExpandedCards(newExpanded);
+  };
+
   return (
     <section id="experience" className="experience-section section">
       <div className="container">
         <div className="section-header">
           <div className="section-number">02</div>
-          <h2 className="display-2 section-title">Professional Journey</h2>
+          <h2 className="display-2 section-title">Experience</h2>
           <p className="section-description">
             PhD in AI with a focus on solutions in machine learning, computer vision related to biomedical fields.
           </p>
@@ -16,7 +28,12 @@ const ExperienceSection: React.FC = () => {
 
         <div className="experience-timeline">
           {experienceData.map((exp, index) => (
-            <div key={index} className="experience-card">
+            <div 
+              key={index} 
+              className={`experience-card ${index % 2 === 0 ? 'left' : 'right'} ${
+                expandedCards.has(index) ? 'expanded' : 'collapsed'
+              }`}
+            >
               <div className="timeline-connector">
                 <div className="timeline-dot">
                   <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -27,7 +44,10 @@ const ExperienceSection: React.FC = () => {
               </div>
 
               <div className="experience-content">
-                <div className="experience-header">
+                <div 
+                  className="experience-header"
+                  onClick={() => toggleCard(index)}
+                >
                   <div className="experience-meta">
                     <h3 className="experience-role">{exp.role}</h3>
                     <div className="experience-company">
@@ -55,6 +75,16 @@ const ExperienceSection: React.FC = () => {
                         </>
                       )}
                     </div>
+                  </div>
+                  <div className="expand-toggle">
+                    <svg 
+                      className={`toggle-icon ${expandedCards.has(index) ? 'expanded' : ''}`}
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                   </div>
                 </div>
 

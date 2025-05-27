@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { educationData } from '../../data/educationData';
 import './EducationSection.css';
 
 const EducationSection: React.FC = () => {
+  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
+
+  const toggleCard = (index: number) => {
+    const newExpanded = new Set(expandedCards);
+    if (newExpanded.has(index)) {
+      newExpanded.delete(index);
+    } else {
+      newExpanded.add(index);
+    }
+    setExpandedCards(newExpanded);
+  };
+
   return (
     <section id="education" className="education-section section">
       <div className="container">
@@ -16,7 +28,12 @@ const EducationSection: React.FC = () => {
 
         <div className="education-timeline">
           {educationData.map((edu, index) => (
-            <div key={index} className="education-card">
+            <div 
+              key={index} 
+              className={`education-card ${index % 2 === 0 ? 'left' : 'right'} ${
+                expandedCards.has(index) ? 'expanded' : 'collapsed'
+              }`}
+            >
               <div className="timeline-connector">
                 <div className="timeline-dot">
                   <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -27,46 +44,62 @@ const EducationSection: React.FC = () => {
               </div>
 
               <div className="education-content">
-                <div className="education-header">
-                  <div className="degree-badge">
-                    <svg className="degree-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                            d="M9.663 17h4.673M12 3v1m6.364-.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                    </svg>
-                    <span className="degree-level">
-                      {edu.degree.includes('PhD') || edu.degree.includes('Doctor') ? 'Doctorate' :
-                       edu.degree.includes('Master') || edu.degree.includes('M.S.') ? 'Master\'s' : 'Bachelor\'s'}
-                    </span>
-                  </div>
-                  
-                  <h3 className="education-degree">{edu.degree}</h3>
-                  
-                  <div className="education-meta">
-                    <div className="institution-info">
-                      <svg className="institution-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div 
+                  className="education-header"
+                  onClick={() => toggleCard(index)}
+                >
+                  <div className="education-header-content">
+                    <div className="degree-badge">
+                      <svg className="degree-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                              d="M9.663 17h4.673M12 3v1m6.364-.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                       </svg>
-                      <span className="institution-name">{edu.institution}</span>
+                      <span className="degree-level">
+                        {edu.degree.includes('PhD') || edu.degree.includes('Doctor') ? 'Doctorate' :
+                         edu.degree.includes('Master') || edu.degree.includes('M.S.') ? 'Master\'s' : 'Bachelor\'s'}
+                      </span>
                     </div>
                     
-                    <div className="education-details-meta">
-                      <div className="field-info">
-                        <svg className="field-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <h3 className="education-degree">{edu.degree}</h3>
+                    
+                    <div className="education-meta">
+                      <div className="institution-info">
+                        <svg className="institution-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                         </svg>
-                        <span>{edu.field}</span>
+                        <span className="institution-name">{edu.institution}</span>
                       </div>
                       
-                      <div className="year-info">
-                        <svg className="year-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                        <span>{edu.year}</span>
+                      <div className="education-details-meta">
+                        <div className="field-info">
+                          <svg className="field-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
+                                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                          </svg>
+                          <span>{edu.field}</span>
+                        </div>
+                        
+                        <div className="year-info">
+                          <svg className="year-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                          </svg>
+                          <span>{edu.year}</span>
+                        </div>
                       </div>
                     </div>
+                  </div>
+                  
+                  <div className="expand-toggle">
+                    <svg 
+                      className={`toggle-icon ${expandedCards.has(index) ? 'expanded' : ''}`}
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                   </div>
                 </div>
 
@@ -95,6 +128,30 @@ const EducationSection: React.FC = () => {
                         </svg>
                         <span className="honor-text">{edu.honors}</span>
                       </div>
+                    </div>
+                  )}
+
+                  {edu.additionalInfo && edu.additionalInfo.length > 0 && (
+                    <div className="additional-info-section">
+                      <h4 className="section-subtitle">
+                        <svg className="subtitle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Key Activities
+                      </h4>
+                      <ul className="additional-info-list">
+                        {edu.additionalInfo.map((info, idx) => (
+                          <li key={idx} className="additional-info-item">
+                            <div className="info-bullet">
+                              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                              </svg>
+                            </div>
+                            <span>{info}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   )}
 
@@ -155,19 +212,6 @@ const EducationSection: React.FC = () => {
                 <span className="stat-label">Years of Study</span>
               </div>
             </div>
-
-            {/* <div className="stat-item">
-              <div className="stat-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                </svg>
-              </div>
-              <div className="stat-content">
-                <span className="stat-number">Multiple</span>
-                <span className="stat-label">Academic Honors</span>
-              </div>
-            </div> */}
           </div>
 
           <div className="education-highlight">
