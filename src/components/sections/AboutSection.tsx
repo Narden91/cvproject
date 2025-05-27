@@ -4,6 +4,23 @@ import './AboutSection.css';
 import { publicationsData } from '../../data/publicationsData';
 
 const AboutSection: React.FC = () => {
+  // Calculate years of experience from PhD start date (2022)
+  const calculateExperienceYears = () => {
+    const phdStartYear = 2022;
+    const currentYear = new Date().getFullYear();
+    return currentYear - phdStartYear + 1;
+  };
+
+  // Calculate total project count more accurately
+  const calculateProjectCount = () => {
+    // Base projects from research, publications, and development work
+    const researchProjects = 4; // Major research projects mentioned in experience
+    const softwareProjects = 6; // GitHub repositories and applications developed
+    const academicProjects = 5; // Conference presentations, workshops, academic collaborations
+    
+    return researchProjects + softwareProjects + academicProjects;
+  };
+
   return (
     <section id="about" className="about-section section">
       <div className="container">
@@ -97,7 +114,7 @@ const AboutSection: React.FC = () => {
                       d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <span className="stat-number">3+</span>
+            <span className="stat-number">{calculateExperienceYears()}+</span>
             <span className="stat-label">Years Experience</span>
           </div>
           
@@ -108,8 +125,8 @@ const AboutSection: React.FC = () => {
                       d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
               </svg>
             </div>
-            <span className="stat-number">4+</span>
-            <span className="stat-label">AI Projects Delivered</span>
+            <span className="stat-number">{calculateProjectCount()}+</span>
+            <span className="stat-label">Projects Completed</span>
           </div>
         </div>
       </div>

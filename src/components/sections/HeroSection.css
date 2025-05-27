@@ -31,25 +31,6 @@
   padding: 0 2rem;
 }
 
-/* Avatar */
-.hero-avatar-container {
-  margin-bottom: 2rem;
-}
-
-.hero-avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 4px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.hero-avatar:hover {
-  transform: scale(1.05);
-}
-
 /* Typography */
 .hero-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -310,18 +291,4 @@
 .slide-in-left.visible {
   opacity: 1;
   transform: translateX(0);
-}
-
-/* Loading animation for avatar */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.hero-avatar.loading {
-  animation: pulse 2s infinite;
 }
