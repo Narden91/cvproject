@@ -67,7 +67,7 @@ const PublicationsSection: React.FC = () => {
           <div className="section-number">04</div>
           <h2 className="display-2 section-title">Research Publications</h2>
           <p className="section-description">
-            Peer-reviewed research contributions in AI-driven medical diagnostics and handwriting analysis
+            Research contributions in AI-driven medical diagnostics, handwriting analysis and Evolutionary Computation.
           </p>
         </div>
 
@@ -120,7 +120,7 @@ const PublicationsSection: React.FC = () => {
               </svg>
             </div>
             <div className="stat-content">
-              <span className="stat-number">{new Date().getFullYear() - Math.min(...years) + 1}</span>
+              <span className="stat-number">{new Date().getFullYear() - 2022}</span>
               <span className="stat-label">Years Active</span>
             </div>
           </div>

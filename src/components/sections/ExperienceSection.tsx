@@ -10,7 +10,7 @@ const ExperienceSection: React.FC = () => {
           <div className="section-number">02</div>
           <h2 className="display-2 section-title">Professional Journey</h2>
           <p className="section-description">
-            AI PhD with a focus on solutions in machine learning, computer vision related to biomedical fields.
+            PhD in AI with a focus on solutions in machine learning, computer vision related to biomedical fields.
           </p>
         </div>
 
@@ -142,9 +142,9 @@ const ExperienceSection: React.FC = () => {
               </svg>
             </div>
             <div className="summary-content">
-              <h3 className="summary-title">Impact-Driven Results</h3>
+              <h3 className="summary-title">Results</h3>
               <p className="summary-description">
-                Consistently delivered AI solutions with research outcomes
+                Create AI solutions with cutting-edge research outcomes
               </p>
             </div>
           </div>

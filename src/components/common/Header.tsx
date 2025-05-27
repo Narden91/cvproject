@@ -8,6 +8,7 @@ import {
   AcademicCapIcon, 
   BriefcaseIcon,
   DocumentTextIcon,
+  CodeBracketIcon,
   EnvelopeIcon
 } from '@heroicons/react/24/outline';
 
@@ -43,6 +44,10 @@ const Header: React.FC = () => {
         <a onClick={() => scrollToSection('publications')} className="nav-link">
           <DocumentTextIcon className="nav-icon" />
           <span>Publications</span>
+        </a>
+        <a onClick={() => scrollToSection('github-projects')} className="nav-link">
+          <CodeBracketIcon className="nav-icon" />
+          <span>Projects</span>
         </a>
         <a onClick={() => scrollToSection('contact')} className="nav-link">
           <EnvelopeIcon className="nav-icon" />

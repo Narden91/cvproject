@@ -28,7 +28,7 @@ const AboutSection: React.FC = () => {
           <div className="section-number">01</div>
           <h2 className="display-2 section-title">About Me</h2>
           <p className="section-description">
-            Passionate about pushing the boundaries of AI to solve humanity's greatest challenges
+            I'm an AI PhD student with a focus on machine learning in biomedical fields. 
           </p>
         </div>
         
@@ -68,7 +68,7 @@ const AboutSection: React.FC = () => {
                         d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
               </div>
-              <h3 className="heading-1">Current Impact</h3>
+              <h3 className="heading-1">Current Position & Research</h3>
             </div>
             
             <div className="impact-content">

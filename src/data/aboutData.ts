@@ -22,6 +22,6 @@ export const aboutData: AboutData = {
     "MLOps & Container Technologies (Docker, Kubernetes)",
     "Agentic AI Development (LangChain, LangGraph)"
   ],
-  currentRole: "PhD Researcher at University of Cassino and Southern Lazio - Department of Electrical and Information Engineering (DIEI)",
-  researchFocus: "Digital handwriting analysis using Machine and Deep Learning techniques for early diagnosis of Specific Learning Disorders (SLD) in children and neurodegenerative diseases like Alzheimer's and Parkinson's"
+  currentRole: "PhD Student at University of Cassino and Southern Lazio - Department of Electrical and Information Engineering (DIEI)",
+  researchFocus: "Digital handwriting analysis using Machine and Deep Learning techniques for early diagnosis of Specific Learning Disorders (SLD) in children and neurodegenerative diseases like Alzheimer's and Parkinson's. Evolutionary algorithms and Bayesian networks. Genetic programming for feature selection and optimization in medical data analysis.",
 };

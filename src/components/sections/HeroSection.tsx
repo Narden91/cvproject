@@ -15,14 +15,6 @@ const HeroSection: React.FC = () => {
     <section id="hero" className="hero-section">
       <div className="hero-overlay"></div>
       <div className="hero-content">
-        <div className="hero-avatar-container">
-          <img 
-            src="https://via.placeholder.com/150" 
-            alt="Professional Headshot" 
-            className="hero-avatar" 
-          />
-        </div>
-        
         <h1 className="hero-title display-1">{heroData.name}</h1>
         <p className="hero-subtitle">{heroData.title}</p>
         
