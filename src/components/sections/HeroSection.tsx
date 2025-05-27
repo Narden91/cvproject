@@ -12,8 +12,7 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="hero-section">
-      <div className="hero-overlay"></div>
+    <section id="hero" className="hero-section section section-consistent">
       <div className="hero-content">
         <h1 className="hero-title display-1">{heroData.name}</h1>
         <p className="hero-subtitle">{heroData.title}</p>
@@ -63,8 +62,8 @@ const HeroSection: React.FC = () => {
         {/* Main CTAs */}
         <div className="hero-cta-container">
           <a 
-            href={heroData.cvLink}
-            onClick={(e) => { e.preventDefault(); alert('CV download/preview to be implemented'); }}
+            href="/CV_2025.pdf"
+            download
             className="btn btn-primary"
           >
             <svg className="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">

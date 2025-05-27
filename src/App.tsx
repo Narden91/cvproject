@@ -41,8 +41,8 @@ function App() {
       <div className="content-wrapper">
         <HeroSection />
         <AboutSection />
-        <EducationSection />
         <ExperienceSection />
+        <EducationSection />
         <PublicationsSection />
         <GithubCarouselSection />
         
