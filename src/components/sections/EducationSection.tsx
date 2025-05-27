@@ -8,9 +8,9 @@ const EducationSection: React.FC = () => {
       <div className="container">
         <div className="section-header">
           <div className="section-number">03</div>
-          <h2 className="display-2 section-title">Academic Foundation</h2>
+          <h2 className="display-2 section-title">Academic</h2>
           <p className="section-description">
-            Academic study in AI, Machine Learning, and Evolutionary Algorithms
+            Academic study in AI and Software Engineering
           </p>
         </div>
 
@@ -156,7 +156,7 @@ const EducationSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="stat-item">
+            {/* <div className="stat-item">
               <div className="stat-icon">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
@@ -167,7 +167,7 @@ const EducationSection: React.FC = () => {
                 <span className="stat-number">Multiple</span>
                 <span className="stat-label">Academic Honors</span>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="education-highlight">
