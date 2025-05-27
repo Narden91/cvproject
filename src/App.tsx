@@ -51,9 +51,9 @@ function App() {
           <div className="container">
             <div className="section-header">
               <div className="section-number">05</div>
-              <h2 className="section-title">Let's Collaborate</h2>
+              <h2 className="section-title"></h2>
               <p className="section-description">
-                Ready to work together on groundbreaking AI research? Let's connect and explore collaboration opportunities.
+                Stay in touch for more information.
               </p>
             </div>
             
@@ -77,10 +77,6 @@ function App() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
                           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                   </svg>
-                </div>
-                <div className="contact-content">
-                  <h3>Phone</h3>
-                  <p>(+39) 327-0181-459</p>
                 </div>
               </div>
               
@@ -119,7 +115,7 @@ function App() {
             <div className="footer-content">
               <div className="footer-left">
                 <h3>Emanuele Nardone</h3>
-                <p>PhD in Artificial Intelligence - Medical Diagnostics Researcher</p>
+                <p>PhD in Artificial Intelligence </p>
               </div>
               <div className="footer-right">
                 <p>&copy; {new Date().getFullYear()} Emanuele Nardone. All rights reserved.</p>
@@ -129,12 +125,6 @@ function App() {
         </footer>
       </div>
       
-      {/* Info badge about the interactive background */}
-      {showInfo && (
-        <div className="interactive-info">
-          Click anywhere on the background to interact with the AI neural network visualization
-        </div>
-      )}
     </div>
   );
 }
