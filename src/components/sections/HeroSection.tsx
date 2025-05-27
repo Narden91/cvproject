@@ -13,6 +13,7 @@ const HeroSection: React.FC = () => {
 
   return (
     <section id="hero" className="hero-section section section-consistent">
+      <div className="hero-overlay"></div>
       <div className="hero-content">
         <h1 className="hero-title display-1">{heroData.name}</h1>
         <p className="hero-subtitle">{heroData.title}</p>
